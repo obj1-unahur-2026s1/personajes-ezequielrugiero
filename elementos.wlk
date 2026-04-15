@@ -1,36 +1,43 @@
-
-// ELEMENTOS
 object castillo {
-    var     defensa = 150
-    method  altura() = 20
+    var nivelDeDefensa = 150
 
-    method  recibirAtaque(_potenciaAtaque) {
-        defensa = (defensa - _potenciaAtaque).max(0)
-        }
-    method  valorOtorgado() = defensa / 5
-    method  recibirTrabajo() {defensa = (defensa + 20).min(200)}
-}
-object aurora {
-    var     estaViva = true
-    method  altura() = 1
-    method  recibirAtaque(_potenciaAtaque) {
-        if (_potenciaAtaque > 10) {estaViva = false}
+    
+    method altura () = 20
+    method valorQueOtorga() = nivelDeDefensa*0.2
+      
+    
+    method recibirAtaque (potencia){
+        nivelDeDefensa = nivelDeDefensa - potencia
     }
-    method estaViva() = estaViva
-    method valorOtorgado() = 15
-    method recibirTrabajo() { /* nada */ }
+    // se le coloca un limitante en la defensa
+    method recibirTrabajo(){
+        nivelDeDefensa = 200.min(nivelDeDefensa + 20)
+    }
+
 }
+
+object aurora {
+    var estaViva = true
+    method altura () = 1
+    method valorQueOtorga () = 15
+
+    method recibirTrabajo(){  }
+
+    method recibirAtaque (potencia){
+      if (potencia >=10) estaViva = false
+    }
+    
+
+}
+
 object tipa {
-    var altura = 8
-    method  altura() = altura
-    method crecer() {altura += 1}
-    method recibirAtaque(_potenciaAtaque) {/* nada */ }
-    method valorOtorgado() = 2 * altura
-    method recibirTrabajo() {self.crecer()}
-}
-object ningunElemento {
-    method altura() =  0
-    method recibirAtaque(_potenciaAtaque) { /* nada */ }
-    method recibirTrabajo() { /* nada */ }
-    method valorOtorgado() { /* nada */ }
+ var altura = 8
+
+    method altura () = altura
+    method valorQueOtorga () = altura*2
+    method recibirTrabajo(){ altura += 1  }
+    method recibirAtaque (potencia){
+        
+    }
+
 }
