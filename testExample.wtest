@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import armas.*
 import elemento.*
 import jugadora-y-personajes.*
@@ -21,4 +22,14 @@ describe "El programa debe resolver el encuentro entre un personaje y un element
     
     assert.notThat(aurora.estaViva())
   }  
+=======
+import example.pepita
+
+describe "group of tests for pepita" {
+
+  test "pepita has initial energy" {
+    assert.equals(100, pepita.energy())
+  }
+
+>>>>>>> 59c70a5f5330c91daed676d5e512a5a7534c6052
 }
