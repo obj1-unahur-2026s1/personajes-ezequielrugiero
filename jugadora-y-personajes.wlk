@@ -1,9 +1,20 @@
 import armas.*
+import elemento.*
 object luisa {
   var personaActual = floki
 
-  method asignarPersonajeActual ()
+  method personaActual(){
+    return personaActual
+  }
 
+  method asignarPersonajeActual (nuevoPersona){
+     personaActual = nuevoPersona
+     return personaActual
+  }
+
+  method aparece(elemento){
+    personaActual.encontrar(elemento)
+  }
 }
 
 object floki {
@@ -16,7 +27,7 @@ object floki {
   }
   method encontrar (elemento){
     armaActual.usar()
-    elemento.recibirAtaque(armaActual.Potencia())
+    elemento.recibirAtaque(armaActual.potencia())
     
 
   }
@@ -24,14 +35,17 @@ object floki {
 
 object mario{
   var valorRecolectado = 0
-  var ultimaAltura = 0
+  var ultimoElemento = aurora
+  
 
   method esFeliz()= valorRecolectado >= 50 || ultimoElemento.altura() >= 10
 
   method encontrar (elemento){
-    ultimaAltura = elemento.altura()
-    valorRecolectado += elemento.valorQueOtorgar()
+    elemento.altura()
+    valorRecolectado += elemento.valorQueOtorga()
     elemento.recibirTrabajo()
+    ultimoElemento = elemento
   }
 
+  method valor() = valorRecolectado
 }

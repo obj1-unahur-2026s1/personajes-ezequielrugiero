@@ -4,6 +4,7 @@ object castillo {
     
     method altura () = 20
     method valorQueOtorga() = nivelDeDefensa*0.2
+    method nivelDeDefensa() = nivelDeDefensa
       
     
     method recibirAtaque (potencia){
@@ -20,6 +21,7 @@ object aurora {
     var estaViva = true
     method altura () = 1
     method valorQueOtorga () = 15
+    method estaViva() = estaViva
 
     method recibirTrabajo(){  }
 
@@ -27,7 +29,6 @@ object aurora {
       if (potencia >=10) estaViva = false
     }
     
-
 }
 
 object tipa {
